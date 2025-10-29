@@ -1,8 +1,32 @@
+/* src/index.css */
+
+/* Tailwind layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* App tokens */
 :root {
   --ocbc-red: #d71920;
 }
-body { @apply text-gray-800; }
+
+/* Smoother type rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: card polish if your Card primitives are minimal */
+@layer components {
+  .ocbc-card {
+    @apply bg-white border border-gray-200 rounded-xl shadow-sm;
+  }
+  .ocbc-card-content {
+    @apply p-6;
+  }
+}
+
+/* Ensure body fills screen & neutral background when custom bg not set */
+body {
+  @apply min-h-screen bg-gray-50 text-gray-900;
+}
